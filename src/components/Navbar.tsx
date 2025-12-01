@@ -202,6 +202,7 @@ const Navbar = () => {
                     <button
                       onClick={() => {
                         setTheme(theme === "dark" ? "light" : "dark");
+                        setMobileMenuOpen(false);
                       }}
                       className="p-2 rounded-lg bg-primary/20 hover:bg-primary/30"
                       aria-label="Toggle theme"
