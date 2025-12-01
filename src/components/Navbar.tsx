@@ -136,12 +136,23 @@ const Navbar = () => {
 
         {/* Mobile Menu - Full Screen Overlay */}
         {mobileMenuOpen && (
-          <div className="lg:hidden fixed top-0 left-0 right-0 bottom-0 w-screen h-screen z-[9999] bg-black/98 overflow-hidden">
+          <div 
+            className="lg:hidden fixed top-0 left-0 right-0 bottom-0 w-screen h-screen z-[9999] bg-black/98 overflow-hidden"
+            onClick={(e) => {
+              // Close menu when clicking the backdrop
+              if (e.target === e.currentTarget) {
+                setMobileMenuOpen(false);
+              }
+            }}
+          >
             {/* Menu Content */}
-            <div className="h-full w-full flex flex-col">
+            <div className="h-full w-full flex flex-col" onClick={(e) => e.stopPropagation()}>
               {/* Header */}
               <div className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-primary/30 to-accent/30 backdrop-blur-sm border-b border-white/10">
-                <div className="flex items-center gap-2">
+                <button 
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center gap-2"
+                >
                   <Image
                     src="/logo.jpeg"
                     alt="PraKMas"
@@ -153,7 +164,7 @@ const Navbar = () => {
                     <div className="text-base font-bold text-white">PraKMas</div>
                     <div className="text-[8px] text-white/70 italic -mt-0.5">Innovation Driven!</div>
                   </div>
-                </div>
+                </button>
                 <button
                   onClick={() => setMobileMenuOpen(false)}
                   className="p-2 rounded-lg bg-white/10 hover:bg-white/20 text-white"
@@ -170,7 +181,9 @@ const Navbar = () => {
                     <Link
                       key={item.path}
                       href={item.path}
-                      onClick={() => setMobileMenuOpen(false)}
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                      }}
                       className={`block w-full px-4 py-3 rounded-lg text-sm font-semibold transition-colors ${
                         isActive(item.path)
                           ? "bg-gradient-to-r from-primary to-accent text-white"
@@ -187,7 +200,9 @@ const Navbar = () => {
                   <div className="flex items-center justify-between">
                     <span className="text-sm font-semibold text-white">Theme</span>
                     <button
-                      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                      onClick={() => {
+                        setTheme(theme === "dark" ? "light" : "dark");
+                      }}
                       className="p-2 rounded-lg bg-primary/20 hover:bg-primary/30"
                       aria-label="Toggle theme"
                     >
@@ -204,7 +219,9 @@ const Navbar = () => {
                 <div className="mt-4">
                   <Link
                     href="/contact"
-                    onClick={() => setMobileMenuOpen(false)}
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                    }}
                     className="block w-full px-4 py-3 rounded-lg bg-gradient-to-r from-primary to-accent text-white text-center text-sm font-bold hover:opacity-90"
                   >
                     Get Started Free
