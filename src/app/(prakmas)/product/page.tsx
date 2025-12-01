@@ -1,8 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Target, Code, TestTube, Rocket, BarChart3 } from "lucide-react";
-import productVisual from "../../../../public/assets/product-visual.jpg";
-import Image from "next/image";
 
 const Product = () => {
   const modules = [
@@ -57,14 +55,6 @@ const Product = () => {
             <p className="text-xl text-muted-foreground">
               PraKMas brings together all stages of development in one intelligent Workspace
             </p>
-          </div>
-
-          <div className="mt-12 animate-fade-in-up">
-            <Image
-              src={productVisual}
-              alt="Product Overview"
-              className="rounded-2xl border border-border shadow-glow-cyan mx-auto max-w-4xl w-full"
-            />
           </div>
         </div>
       </section>
