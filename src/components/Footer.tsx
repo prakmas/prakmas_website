@@ -16,8 +16,8 @@ const Footer = () => {
   return (
     <footer className="relative border-t border-border bg-card/30">
       {/* Main Footer Content */}
-      <div className="container mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
+      <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 mb-8 sm:mb-10">
           {/* Brand & Newsletter */}
           <div className="lg:col-span-2">
             <Link href="/" className="inline-flex items-center gap-3 mb-5 group">
