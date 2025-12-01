@@ -127,15 +127,15 @@ const Index = () => {
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-7xl mx-auto">
             {/* Animated trust badge */}
-            <div className="flex justify-center mb-12 animate-fade-in">
-              <div className="group relative inline-flex items-center gap-4 px-8 py-4 rounded-2xl bg-card border-2 border-primary/30 shadow-xl hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300 hover:scale-105">
+            <div className="flex justify-center mb-8 sm:mb-12 animate-fade-in">
+              <div className="group relative inline-flex items-center gap-2 sm:gap-4 px-4 sm:px-8 py-3 sm:py-4 rounded-2xl bg-card border-2 border-primary/30 shadow-xl hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300 hover:scale-105">
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="relative flex items-center gap-2">
-                  <BadgeCheck className="w-6 h-6 text-primary animate-pulse" />
+                  <BadgeCheck className="w-5 h-5 sm:w-6 sm:h-6 text-primary animate-pulse" />
                 </div>
-                <div className="relative flex items-center gap-3 text-sm font-bold">
+                <div className="relative flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-3 text-xs sm:text-sm font-bold">
                   <span className="text-foreground">🏆 Trusted by 150+ Companies</span>
-                  <span className="text-muted-foreground">•</span>
+                  <span className="text-muted-foreground hidden sm:inline">•</span>
                   <span className="text-foreground">⭐ 800+ Success Stories</span>
                 </div>
               </div>
@@ -226,20 +226,20 @@ const Index = () => {
             </div>
 
             {/* Modern stats cards */}
-            <div className="mt-20 grid grid-cols-2 lg:grid-cols-4 gap-6 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+            <div className="mt-16 sm:mt-20 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 animate-fade-in" style={{ animationDelay: '0.6s' }}>
               {stats.map((stat, index) => (
                 <div key={index} className="group relative">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="relative p-8 rounded-2xl bg-card/80 backdrop-blur-sm border-2 border-border hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
-                    <div className="flex justify-center mb-4">
-                      <div className={`p-4 rounded-2xl bg-gradient-to-br ${stat.color} shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                        <stat.icon className="w-8 h-8 text-white" strokeWidth={2.5} />
+                  <div className="relative p-4 sm:p-8 rounded-2xl bg-card/80 backdrop-blur-sm border-2 border-border hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                    <div className="flex justify-center mb-3 sm:mb-4">
+                      <div className={`p-2 sm:p-4 rounded-2xl bg-gradient-to-br ${stat.color} shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                        <stat.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" strokeWidth={2.5} />
                       </div>
                     </div>
-                    <div className="text-5xl font-black mb-2 text-center text-primary">
+                    <div className="text-3xl sm:text-5xl font-black mb-1 sm:mb-2 text-center text-primary">
                       {stat.value}
                     </div>
-                    <div className="text-sm text-muted-foreground text-center font-bold uppercase tracking-wide">{stat.label}</div>
+                    <div className="text-xs sm:text-sm text-muted-foreground text-center font-bold uppercase tracking-wide">{stat.label}</div>
                   </div>
                 </div>
               ))}

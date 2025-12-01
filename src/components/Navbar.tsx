@@ -34,16 +34,28 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [mobileMenuOpen]);
+
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+    <nav className={`fixed top-0 w-full z-[60] transition-all duration-500 ${
       scrolled 
         ? 'bg-gradient-to-r from-black via-primary to-black bg-[length:200%_100%] animate-gradient-x backdrop-blur-2xl border-b-2 border-primary/30 shadow-2xl shadow-primary/20' 
         : 'bg-gradient-to-r from-black/90 via-primary/90 to-black/90 bg-[length:200%_100%] animate-gradient-x backdrop-blur-xl'
     }`}>
-      <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between h-20">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
-          <Link href="/" className="group flex items-center space-x-3">
+          <Link href="/" className="group flex items-center space-x-2 sm:space-x-3">
             <div className="relative">
               <div className="absolute -inset-1 bg-gradient-to-r from-accent via-white to-accent rounded-full opacity-60 group-hover:opacity-100 blur-md transition-all animate-pulse" />
               <Image
@@ -51,15 +63,15 @@ const Navbar = () => {
                 alt="PraKMas Logo"
                 width={50}
                 height={50}
-                className="relative h-12 w-12 group-hover:scale-110 transition-transform rounded-full ring-2 ring-white/50 group-hover:ring-white"
+                className="relative h-10 w-10 sm:h-12 sm:w-12 group-hover:scale-110 transition-transform rounded-full ring-2 ring-white/50 group-hover:ring-white"
                 priority
               />
             </div>
             <div>
-              <div className="text-2xl font-black text-white group-hover:text-accent transition-all">
+              <div className="text-lg sm:text-2xl font-black text-white group-hover:text-accent transition-all">
                 PraKMas
               </div>
-              <div className="text-[11px] font-bold text-white/90 italic tracking-wide -mt-1">
+              <div className="text-[9px] sm:text-[11px] font-bold text-white/90 italic tracking-wide -mt-1">
                 Driven By Innovation!
               </div>
             </div>
@@ -110,69 +122,93 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-colors"
+            className="lg:hidden p-2 rounded-lg bg-white/10 hover:bg-white/20 active:bg-white/25 text-white transition-all border border-white/20"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? (
-              <X className="h-6 w-6" />
+              <X className="h-5 w-5 sm:h-6 sm:w-6" />
             ) : (
-              <Menu className="h-6 w-6" />
+              <Menu className="h-5 w-5 sm:h-6 sm:w-6" />
             )}
           </button>
         </div>
 
         {/* Mobile Menu - Full Screen Overlay */}
         {mobileMenuOpen && (
-          <div className="lg:hidden fixed inset-0 top-20 z-50 animate-fade-in">
-            {/* Backdrop */}
-            <div 
-              className="absolute inset-0 bg-background/98 backdrop-blur-2xl"
-              onClick={() => setMobileMenuOpen(false)}
-            />
-            
+          <div className="lg:hidden fixed top-0 left-0 right-0 bottom-0 w-screen h-screen z-[9999] bg-black/98 overflow-hidden">
             {/* Menu Content */}
-            <div className="relative h-full overflow-y-auto py-8 px-6">
-              <div className="flex flex-col space-y-3 max-w-md mx-auto">
-                {navItems.map((item, index) => (
-                  <Link
-                    key={item.path}
-                    href={item.path}
-                    className={`px-6 py-4 text-lg font-bold transition-all rounded-2xl ${
-                      isActive(item.path)
-                        ? "bg-gradient-to-r from-primary to-accent text-white shadow-lg shadow-primary/30 scale-105"
-                        : "bg-card text-foreground hover:bg-primary/10 border-2 border-border hover:border-primary/50"
-                    } animate-fade-in`}
-                    style={{ animationDelay: `${index * 50}ms` }}
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-                
-                {/* Mobile Theme Toggle */}
-                <div className="flex items-center justify-between px-6 py-5 mt-6 rounded-2xl bg-card border-2 border-border">
-                  <span className="text-base font-bold">Theme</span>
-                  <button
-                    onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                    className="p-3 rounded-xl bg-primary/10 hover:bg-primary/20 transition-colors"
-                    aria-label="Toggle theme"
-                  >
-                    {mounted && theme === "dark" ? (
-                      <Sun className="h-6 w-6 text-primary" />
-                    ) : (
-                      <Moon className="h-6 w-6 text-secondary" />
-                    )}
-                  </button>
+            <div className="h-full w-full flex flex-col">
+              {/* Header */}
+              <div className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-primary/30 to-accent/30 backdrop-blur-sm border-b border-white/10">
+                <div className="flex items-center gap-2">
+                  <Image
+                    src="/logo.jpeg"
+                    alt="PraKMas"
+                    width={36}
+                    height={36}
+                    className="h-9 w-9 rounded-full"
+                  />
+                  <div>
+                    <div className="text-base font-bold text-white">PraKMas</div>
+                    <div className="text-[8px] text-white/70 italic -mt-0.5">Innovation Driven!</div>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="p-2 rounded-lg bg-white/10 hover:bg-white/20 text-white"
+                  aria-label="Close menu"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              </div>
+
+              {/* Navigation Items */}
+              <div className="flex-1 overflow-y-auto px-4 py-4">
+                <div className="space-y-2">
+                  {navItems.map((item) => (
+                    <Link
+                      key={item.path}
+                      href={item.path}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className={`block w-full px-4 py-3 rounded-lg text-sm font-semibold transition-colors ${
+                        isActive(item.path)
+                          ? "bg-gradient-to-r from-primary to-accent text-white"
+                          : "bg-white/5 text-white hover:bg-white/10 border border-white/10"
+                      }`}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
                 </div>
 
-                {/* Mobile CTA */}
-                <div className="pt-6">
-                  <Button asChild className="w-full h-14 bg-gradient-to-r from-primary to-accent text-white hover:opacity-90 border-0 font-bold text-lg shadow-lg rounded-2xl">
-                    <Link href="/contact" className="text-white" onClick={() => setMobileMenuOpen(false)}>
-                      <span className="text-white">Get Started Free</span>
-                    </Link>
-                  </Button>
+                {/* Theme Toggle */}
+                <div className="mt-4 p-4 rounded-lg bg-white/5 border border-white/10">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-semibold text-white">Theme</span>
+                    <button
+                      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                      className="p-2 rounded-lg bg-primary/20 hover:bg-primary/30"
+                      aria-label="Toggle theme"
+                    >
+                      {mounted && theme === "dark" ? (
+                        <Sun className="h-4 w-4 text-white" />
+                      ) : (
+                        <Moon className="h-4 w-4 text-white" />
+                      )}
+                    </button>
+                  </div>
+                </div>
+
+                {/* CTA Button */}
+                <div className="mt-4">
+                  <Link
+                    href="/contact"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block w-full px-4 py-3 rounded-lg bg-gradient-to-r from-primary to-accent text-white text-center text-sm font-bold hover:opacity-90"
+                  >
+                    Get Started Free
+                  </Link>
                 </div>
               </div>
             </div>
