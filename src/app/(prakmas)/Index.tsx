@@ -155,20 +155,20 @@ const Index = () => {
             </h1>
             
             {/* Subheadline with icons */}
-            <div className="hero-subtitle text-center mb-6 max-w-5xl mx-auto text-foreground animate-fade-in flex flex-wrap justify-center items-center gap-3" style={{ animationDelay: '0.2s' }}>
+            <div className="hero-subtitle text-center mb-6 max-w-5xl mx-auto text-foreground animate-fade-in flex flex-col sm:flex-row flex-wrap justify-center items-center gap-3" style={{ animationDelay: '0.2s' }}>
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-card border border-primary/20">
                 <Zap className="w-5 h-5 text-primary" />
-                <span className="text-foreground">Ship <span className="text-primary font-black">3x Faster</span></span>
+                <span className="text-foreground text-sm sm:text-base">Ship <span className="text-primary font-black">3x Faster</span></span>
               </span>
-              <span className="text-muted-foreground">•</span>
+              <span className="text-muted-foreground hidden sm:inline">•</span>
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-card border border-primary/20">
                 <DollarSign className="w-5 h-5 text-primary" />
-                <span className="text-foreground">Save <span className="text-primary font-black">$150K+</span></span>
+                <span className="text-foreground text-sm sm:text-base">Save <span className="text-primary font-black">$150K+</span></span>
               </span>
-              <span className="text-muted-foreground">•</span>
+              <span className="text-muted-foreground hidden sm:inline">•</span>
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-card border border-primary/20">
                 <Trophy className="w-5 h-5 text-primary" />
-                <span className="text-foreground">Land <span className="text-primary font-black">₹12L+</span></span>
+                <span className="text-foreground text-sm sm:text-base">Land <span className="text-primary font-black">₹12L+</span></span>
               </span>
             </div>
             
@@ -178,17 +178,17 @@ const Index = () => {
             </p>
 
             {/* CTAs with enhanced design */}
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-10 animate-fade-in" style={{ animationDelay: '0.4s' }}>
-              <Button size="xl" variant="hero" asChild className="group text-white relative overflow-hidden">
-                <Link href="/contact" className="flex items-center gap-3 min-h-[60px] px-12 text-base font-bold text-white">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-stretch sm:items-center mb-10 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+              <Button size="xl" variant="hero" asChild className="group text-white relative overflow-hidden w-full sm:w-auto">
+                <Link href="/contact" className="flex items-center justify-center gap-3 min-h-[56px] sm:min-h-[60px] px-8 sm:px-12 text-base font-bold text-white">
                   <div className="absolute inset-0 bg-gradient-to-r from-primary via-accent to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <Sparkles className="w-5 h-5 text-white relative z-10 group-hover:rotate-12 transition-transform" />
                   <span className="text-white relative z-10">Start Free Consultation</span>
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform text-white relative z-10" />
                 </Link>
               </Button>
-              <Button size="xl" variant="outline" asChild className="group relative overflow-hidden">
-                <Link href="/resources" className="min-h-[60px] px-10 font-bold text-base flex items-center gap-3">
+              <Button size="xl" variant="outline" asChild className="group relative overflow-hidden w-full sm:w-auto">
+                <Link href="/resources" className="min-h-[56px] sm:min-h-[60px] px-8 sm:px-10 font-bold text-base flex items-center justify-center gap-3">
                   <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <PlayCircle className="w-5 h-5 relative z-10 group-hover:scale-110 transition-transform" />
                   <span className="relative z-10">Watch Demo</span>
@@ -198,28 +198,28 @@ const Index = () => {
             </div>
             
             {/* Enhanced trust signals */}
-            <div className="flex flex-wrap justify-center items-center gap-8 text-sm animate-fade-in" style={{ animationDelay: '0.5s' }}>
+            <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-8 text-xs sm:text-sm animate-fade-in" style={{ animationDelay: '0.5s' }}>
               <div className="flex items-center gap-2 group hover:scale-105 transition-all cursor-pointer">
-                <div className="p-2 rounded-lg bg-success/10 group-hover:bg-success/20 transition-colors">
-                  <CheckCircle className="w-5 h-5 text-success" />
+                <div className="p-1.5 sm:p-2 rounded-lg bg-success/10 group-hover:bg-success/20 transition-colors">
+                  <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-success" />
                 </div>
                 <span className="font-bold text-foreground">Free Consultation</span>
               </div>
               <div className="flex items-center gap-2 group hover:scale-105 transition-all cursor-pointer">
-                <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                  <Shield className="w-5 h-5 text-primary" />
+                <div className="p-1.5 sm:p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                  <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                 </div>
                 <span className="font-bold text-foreground">Money-Back Guarantee</span>
               </div>
               <div className="flex items-center gap-2 group hover:scale-105 transition-all cursor-pointer">
-                <div className="p-2 rounded-lg bg-secondary/10 group-hover:bg-secondary/20 transition-colors">
-                  <CheckCircle className="w-5 h-5 text-secondary" />
+                <div className="p-1.5 sm:p-2 rounded-lg bg-secondary/10 group-hover:bg-secondary/20 transition-colors">
+                  <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-secondary" />
                 </div>
-                <span className="font-bold text-foreground">No Credit Card Required</span>
+                <span className="font-bold text-foreground">No Credit Card</span>
               </div>
               <div className="flex items-center gap-2 group hover:scale-105 transition-all cursor-pointer">
-                <div className="p-2 rounded-lg bg-accent/10 group-hover:bg-accent/20 transition-colors">
-                  <Clock className="w-5 h-5 text-accent" />
+                <div className="p-1.5 sm:p-2 rounded-lg bg-accent/10 group-hover:bg-accent/20 transition-colors">
+                  <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
                 </div>
                 <span className="font-bold text-foreground">24/7 Support</span>
               </div>

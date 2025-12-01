@@ -122,45 +122,58 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu - Full Screen Overlay */}
         {mobileMenuOpen && (
-          <div className="lg:hidden py-6 border-t border-border animate-fade-in bg-background/95 backdrop-blur-xl">
-            <div className="flex flex-col space-y-1">
-              {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  href={item.path}
-                  className={`px-4 py-3 text-base font-medium transition-colors rounded-lg ${
-                    isActive(item.path)
-                      ? "bg-gradient-to-r from-primary/20 to-accent/20 text-primary font-bold border border-primary/30"
-                      : "text-foreground hover:bg-muted"
-                  }`}
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
-              
-              {/* Mobile Theme Toggle */}
-              <div className="flex items-center justify-between px-4 py-3 mt-4 border-t border-border">
-                <span className="text-base font-medium">Theme</span>
-                <button
-                  onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                  className="p-2 rounded-lg hover:bg-muted transition-colors"
-                >
-                  {mounted && theme === "dark" ? (
-                    <Sun className="h-5 w-5 text-primary" />
-                  ) : (
-                    <Moon className="h-5 w-5 text-secondary" />
-                  )}
-                </button>
-              </div>
+          <div className="lg:hidden fixed inset-0 top-20 z-50 animate-fade-in">
+            {/* Backdrop */}
+            <div 
+              className="absolute inset-0 bg-background/98 backdrop-blur-2xl"
+              onClick={() => setMobileMenuOpen(false)}
+            />
+            
+            {/* Menu Content */}
+            <div className="relative h-full overflow-y-auto py-8 px-6">
+              <div className="flex flex-col space-y-3 max-w-md mx-auto">
+                {navItems.map((item, index) => (
+                  <Link
+                    key={item.path}
+                    href={item.path}
+                    className={`px-6 py-4 text-lg font-bold transition-all rounded-2xl ${
+                      isActive(item.path)
+                        ? "bg-gradient-to-r from-primary to-accent text-white shadow-lg shadow-primary/30 scale-105"
+                        : "bg-card text-foreground hover:bg-primary/10 border-2 border-border hover:border-primary/50"
+                    } animate-fade-in`}
+                    style={{ animationDelay: `${index * 50}ms` }}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+                
+                {/* Mobile Theme Toggle */}
+                <div className="flex items-center justify-between px-6 py-5 mt-6 rounded-2xl bg-card border-2 border-border">
+                  <span className="text-base font-bold">Theme</span>
+                  <button
+                    onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                    className="p-3 rounded-xl bg-primary/10 hover:bg-primary/20 transition-colors"
+                    aria-label="Toggle theme"
+                  >
+                    {mounted && theme === "dark" ? (
+                      <Sun className="h-6 w-6 text-primary" />
+                    ) : (
+                      <Moon className="h-6 w-6 text-secondary" />
+                    )}
+                  </button>
+                </div>
 
-              {/* Mobile CTA */}
-              <div className="pt-4 px-4">
-                <Button asChild className="w-full bg-primary text-white hover:bg-primary/90 border-0 font-bold">
-                  <Link href="/contact" className="text-white"><span className="text-white">Get Started Free</span></Link>
-                </Button>
+                {/* Mobile CTA */}
+                <div className="pt-6">
+                  <Button asChild className="w-full h-14 bg-gradient-to-r from-primary to-accent text-white hover:opacity-90 border-0 font-bold text-lg shadow-lg rounded-2xl">
+                    <Link href="/contact" className="text-white" onClick={() => setMobileMenuOpen(false)}>
+                      <span className="text-white">Get Started Free</span>
+                    </Link>
+                  </Button>
+                </div>
               </div>
             </div>
           </div>

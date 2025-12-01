@@ -1,49 +1,55 @@
 {
-  "name": "FusionOne Platform - End-to-End AI Powered Unified SDLC Platform",
-  "short_name": "FusionOne",
-  "description": "Streamline your development lifecycle with our integrated platform that combines Idea Management, ITSM, Project Management, Test Management, and more.",
+  "name": "PraKMas - Transform Your Business & Career",
+  "short_name": "PraKMas",
+  "description": "Save 60-70% on development. Land ₹6.5L+ packages. Join 150+ companies & 800+ professionals.",
   "icons": [
     {
-      "src": "/android-chrome-192x192.png",
+      "src": "/logo.jpeg",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/jpeg"
     },
     {
-      "src": "/android-chrome-512x512.png",
+      "src": "/logo.jpeg",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/jpeg"
     },
     {
-      "src": "/maskable-icon.png",
+      "src": "/logo.jpeg",
       "sizes": "512x512",
-      "type": "image/png",
+      "type": "image/jpeg",
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
+  "theme_color": "#dc2626",
+  "background_color": "#0a0a0a",
   "display": "standalone",
   "start_url": "/",
-  "orientation": "portrait",
-  "categories": ["business", "productivity", "development", "utilities"],
+  "orientation": "portrait-primary",
+  "categories": ["business", "productivity", "development", "education"],
   "lang": "en-US",
   "dir": "ltr",
   "prefer_related_applications": false,
-  "related_applications": [
-    {
-      "platform": "web"
-    }
-  ],
+  "scope": "/",
   "shortcuts": [
     {
-      "name": "Join Waitlist",
-      "url": "/#waitlist",
-      "description": "Join the FusionOne waitlist"
+      "name": "Contact Us",
+      "url": "/contact",
+      "description": "Get in touch with PraKMas"
     },
     {
-      "name": "Features",
-      "url": "/#features",
-      "description": "Explore FusionOne features"
+      "name": "Services",
+      "url": "/software-development",
+      "description": "Explore our services"
+    },
+    {
+      "name": "Training",
+      "url": "/training-internships",
+      "description": "Career transformation programs"
+    },
+    {
+      "name": "Resources",
+      "url": "/resources",
+      "description": "Learn from our blog"
     }
   ]
 }

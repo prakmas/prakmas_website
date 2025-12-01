@@ -26,18 +26,35 @@ const playfair = Playfair_Display({
   weight: ["400", "700", "900"],
 });
 
-// ✅ Compelling SEO-optimized metadata for marketing
+// ✅ Compelling SEO-optimized metadata for marketing + Mobile App-Like Experience
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://prakmas.com'),
   title: "PraKMas - Transform Your Business | Save 60-70% on Development | #1 Tech Career Platform",
   description:
     "🚀 Join 150+ companies saving 60-70% on software development costs. 800+ professionals landed ₹6.5L+ packages in 6 months. World-class software development, career training & global consulting services.",
   keywords: "software development, IT training, career transformation, offshore development, tech jobs, global consulting, full-stack training, job placement",
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+    userScalable: true,
+    viewportFit: 'cover',
+  },
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#0a0a0a' }
+  ],
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'black-translucent',
+    title: 'PraKMas',
+  },
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon.ico',
     apple: '/logo.jpeg',
   },
+  manifest: '/manifest.json',
   openGraph: {
     title: "PraKMas - Transform Your Business & Career",
     description: "Save 60-70% on development. Land ₹6.5L+ packages in 6 months. Join 150+ companies & 800+ professionals.",
