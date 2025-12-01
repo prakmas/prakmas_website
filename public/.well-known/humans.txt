@@ -1,0 +1,14 @@
+/* TEAM */
+  Creator: FusionOne Team
+  Contact: info@prakmas.com
+  Twitter: @getFusionOne
+  From: Global
+
+/* SITE */
+  Last update: 2025/03/03
+  Language: English
+  Doctype: HTML5
+  IDE: Visual Studio Code, Next.js
+  
+/* THANKS */
+  To all our early adopters and beta testers!
