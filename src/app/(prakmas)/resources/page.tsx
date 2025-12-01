@@ -68,6 +68,7 @@ const blogPosts: BlogPost[] = [
     title: "Full-Stack to Cloud: Which Tech Career Path Pays Best in 2025?",
     excerpt: "An in-depth analysis of the most lucrative tech career paths in 2025. Compare salaries, growth potential, and job availability across Full-Stack Development, Cloud Engineering, AI/ML, and Data Science with insights from 50+ hiring partners.",
     category: "Career Development",
+    date: "2025-03-10",
     readTime: "6 min read",
     image: "/assets/team-collaboration.webp",
     featured: false,
